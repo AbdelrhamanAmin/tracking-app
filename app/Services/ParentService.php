@@ -58,4 +58,21 @@ class ParentService{
     {
         return $this->parentRepository->deleteParentPartner($parentId);
     }
+
+    public function getParent($parentId)
+    {
+        $parent = $this->parentRepository->getParentById($parentId);
+        if(!$parent) {
+            throw new \Exception("Parent not found", 404);
+        }
+        return $parent;
+    }
+
+    public function getAssigendPartnership($parentId){
+        $parent = $this->parentRepository->getAssigendPartnership($parentId);
+        if(!$parent) {
+            throw new \Exception("Parent not found", 404);
+        }
+        return $parent;
+    }
 }

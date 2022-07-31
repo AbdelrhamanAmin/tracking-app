@@ -63,4 +63,9 @@ class ParentRepository {
         ParentUser::where('id', $parentId)->update(["partner_id" => null]);
         return $this->getParentById($parentId);
     }
+
+    public function getAssigendPartnership($parentId)
+    {
+        return ParentUser::where('partner_id', $parentId)->get();
+    }
 }
